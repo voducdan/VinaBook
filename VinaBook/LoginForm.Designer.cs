@@ -40,7 +40,7 @@
             // 
             this.loginTitle.AutoSize = true;
             this.loginTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginTitle.Location = new System.Drawing.Point(297, 70);
+            this.loginTitle.Location = new System.Drawing.Point(297, 39);
             this.loginTitle.Name = "loginTitle";
             this.loginTitle.Size = new System.Drawing.Size(203, 31);
             this.loginTitle.TabIndex = 0;
@@ -50,7 +50,7 @@
             // unameInput
             // 
             this.unameInput.AutoSize = true;
-            this.unameInput.Location = new System.Drawing.Point(297, 165);
+            this.unameInput.Location = new System.Drawing.Point(300, 122);
             this.unameInput.Name = "unameInput";
             this.unameInput.Size = new System.Drawing.Size(55, 13);
             this.unameInput.TabIndex = 1;
@@ -59,7 +59,7 @@
             // pwdInput
             // 
             this.pwdInput.AutoSize = true;
-            this.pwdInput.Location = new System.Drawing.Point(297, 207);
+            this.pwdInput.Location = new System.Drawing.Point(300, 164);
             this.pwdInput.Name = "pwdInput";
             this.pwdInput.Size = new System.Drawing.Size(53, 13);
             this.pwdInput.TabIndex = 2;
@@ -67,14 +67,14 @@
             // 
             // uname
             // 
-            this.uname.Location = new System.Drawing.Point(397, 162);
+            this.uname.Location = new System.Drawing.Point(400, 119);
             this.uname.Name = "uname";
             this.uname.Size = new System.Drawing.Size(100, 20);
             this.uname.TabIndex = 3;
             // 
             // pwd
             // 
-            this.pwd.Location = new System.Drawing.Point(397, 204);
+            this.pwd.Location = new System.Drawing.Point(400, 161);
             this.pwd.Name = "pwd";
             this.pwd.Size = new System.Drawing.Size(100, 20);
             this.pwd.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             this.loginBtn.BackColor = System.Drawing.SystemColors.Highlight;
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.loginBtn.Location = new System.Drawing.Point(303, 269);
+            this.loginBtn.Location = new System.Drawing.Point(306, 226);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(194, 23);
             this.loginBtn.TabIndex = 5;
