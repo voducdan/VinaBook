@@ -22,9 +22,9 @@ namespace VinaBook
 
         private void typeOfBook_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedItem = typeOfBook.Items[typeOfBook.SelectedIndex].ToString();
             try
             {
+                String selectedItem = typeOfBook.Items[typeOfBook.SelectedIndex].ToString();
                 String str = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
@@ -42,7 +42,6 @@ namespace VinaBook
                 da.Fill(book);
                 dataGridView1.DataSource = book;
                 SqlCommand cmd1 = new SqlCommand("sp_DanhMuc_Sach", connection);
-
                 SqlDataReader reader;
                 DataTable dm = new DataTable();
                 SqlParameter parameter2 = new SqlParameter();
@@ -53,12 +52,11 @@ namespace VinaBook
                 cmd1.Parameters.Add(parameter2);
                 cmd1.CommandType = CommandType.StoredProcedure;
                 reader = cmd1.ExecuteReader();
-                dm.Columns.Add("danhmuc", typeof(String));
-                dm.Columns.Add("Ten_danh_muc", typeof(String));
-                dm.Load(reader);
-                danhmuc.ValueMember = "danhmuc";
-                danhmuc.DisplayMember = "Ten_danh_muc";
-                danhmuc.DataSource = dm;
+                danhmuc.Items.Clear();
+                while (reader.Read())
+                {
+                    danhmuc.Items.Add(reader[1]);
+                };
                 connection.Close();
             }
             catch (Exception es)
@@ -69,10 +67,10 @@ namespace VinaBook
 
         private void danhmuc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedItem = danhmuc.Items[danhmuc.SelectedIndex].ToString();
 
             try
             {
+                String selectedItem = danhmuc.Items[danhmuc.SelectedIndex].ToString();
                 String str = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
@@ -85,13 +83,16 @@ namespace VinaBook
                 parameter.Value = selectedItem;
                 cmd.Parameters.Add(parameter);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable book = new DataTable();
-                da.Fill(book);
-                dataGridView1.DataSource = book;
+                if(String.Compare(selectedItem, "System.Data.DataRowView", true) < 0)
+                {
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable book = new DataTable();
+                    da.Fill(book);
+                    dataGridView1.DataSource = book;
+                }
+
                 connection.Close();
-                MessageBox.Show("Close");
             }
             catch (Exception es)
             {
