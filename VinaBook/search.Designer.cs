@@ -1,6 +1,6 @@
 ﻿namespace VinaBook
 {
-    partial class Form1
+    partial class search
     {
         /// <summary>
         /// Required designer variable.

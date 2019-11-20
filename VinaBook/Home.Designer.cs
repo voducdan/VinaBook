@@ -34,6 +34,10 @@
             this.cart = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.signUpBtn = new System.Windows.Forms.Button();
+            this.typeOfBook = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.danhmuc = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -90,11 +94,56 @@
             this.signUpBtn.Text = "Đăng Ký";
             this.signUpBtn.UseVisualStyleBackColor = true;
             // 
+            // typeOfBook
+            // 
+            this.typeOfBook.FormattingEnabled = true;
+            this.typeOfBook.Items.AddRange(new object[] {
+            "Sách ngoại văn",
+            "Sách kinh tế",
+            "Sách văn học trong nước",
+            "Sách văn học nước ngoài",
+            "Sách thiếu nhi",
+            "Sách thường thức đời sống",
+            "Sách phát triển bản thân",
+            "Sách tin học ngoại ngữ",
+            "Sách giáo khoa",
+            "Sách chuyên ngành",
+            "Sách văn phòng phẩm"});
+            this.typeOfBook.Location = new System.Drawing.Point(18, 58);
+            this.typeOfBook.Name = "typeOfBook";
+            this.typeOfBook.Size = new System.Drawing.Size(139, 21);
+            this.typeOfBook.TabIndex = 6;
+            this.typeOfBook.Text = "Chọn một thể loại sách";
+            this.typeOfBook.SelectedIndexChanged += new System.EventHandler(this.typeOfBook_SelectedIndexChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(18, 85);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(910, 353);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // danhmuc
+            // 
+            this.danhmuc.BackColor = System.Drawing.SystemColors.Window;
+            this.danhmuc.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.danhmuc.FormattingEnabled = true;
+            this.danhmuc.Location = new System.Drawing.Point(177, 58);
+            this.danhmuc.Name = "danhmuc";
+            this.danhmuc.Size = new System.Drawing.Size(121, 21);
+            this.danhmuc.TabIndex = 8;
+            this.danhmuc.Text = "Chọn danh mục";
+            this.danhmuc.SelectedIndexChanged += new System.EventHandler(this.danhmuc_SelectedIndexChanged);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.Controls.Add(this.danhmuc);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.typeOfBook);
             this.Controls.Add(this.signUpBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.cart);
@@ -103,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Home";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +166,8 @@
         private System.Windows.Forms.Button cart;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Button signUpBtn;
+        private System.Windows.Forms.ComboBox typeOfBook;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox danhmuc;
     }
 }
