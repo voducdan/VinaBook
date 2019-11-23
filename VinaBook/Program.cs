@@ -19,4 +19,12 @@ namespace VinaBook
             Application.Run(new Home());
         }
     }
+    static class globalVeriable
+    {   
+        private static String _connectionString = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
+        public static String GlobalVeriable
+        {
+            get { return _connectionString; }
+        }
+    }
 }

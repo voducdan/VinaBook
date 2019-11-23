@@ -34,6 +34,7 @@
             this.uname = new System.Windows.Forms.TextBox();
             this.pwd = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginTitle
@@ -85,17 +86,29 @@
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.loginBtn.Location = new System.Drawing.Point(306, 226);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(194, 23);
+            this.loginBtn.Size = new System.Drawing.Size(96, 23);
             this.loginBtn.TabIndex = 5;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // cancel
+            // 
+            this.cancel.BackColor = System.Drawing.Color.Red;
+            this.cancel.Location = new System.Drawing.Point(408, 226);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(91, 23);
+            this.cancel.TabIndex = 6;
+            this.cancel.Text = "Hủy";
+            this.cancel.UseVisualStyleBackColor = false;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancel);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.pwd);
             this.Controls.Add(this.uname);
@@ -117,6 +130,7 @@
         private System.Windows.Forms.TextBox uname;
         private System.Windows.Forms.TextBox pwd;
         private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.Button cancel;
     }
 }
 
