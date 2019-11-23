@@ -25,9 +25,10 @@ namespace VinaBook
             try
             {
                 String selectedItem = typeOfBook.Items[typeOfBook.SelectedIndex].ToString();
-                String str = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
+                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
+
                 SqlCommand cmd = new SqlCommand("sp_TimSach", connection);
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@tenloaisach";
@@ -41,6 +42,7 @@ namespace VinaBook
                 DataTable book = new DataTable();
                 da.Fill(book);
                 dataGridView1.DataSource = book;
+
                 SqlCommand cmd1 = new SqlCommand("sp_DanhMuc_Sach", connection);
                 SqlDataReader reader;
                 DataTable dm = new DataTable();
@@ -71,7 +73,7 @@ namespace VinaBook
             try
             {
                 String selectedItem = danhmuc.Items[danhmuc.SelectedIndex].ToString();
-                String str = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
+                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
                 SqlCommand cmd = new SqlCommand("sp_Sach_DanhMuc", connection);

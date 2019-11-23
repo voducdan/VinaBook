@@ -14,7 +14,7 @@ namespace VinaBook
         {
             try
             {
-                String str = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
+                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
                 String param = searchText.Text;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
