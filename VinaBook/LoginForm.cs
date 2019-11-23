@@ -33,7 +33,6 @@ namespace VinaBook
         {
             try
             {
-
                 String str = globalVeriable.GlobalVeriable;
                 String username = uname.Text;
                 String password = pwd.Text;

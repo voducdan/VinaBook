@@ -100,6 +100,7 @@ namespace VinaBook
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     query = $"INSERT INTO HOADONCHITIET VALUES ({Id},{Id},{_tongTien})";
+                    query = $"INSERT INTO HOADONCHITIET VALUES ({Id},{Id},{_tongTien}, {Int32.Parse(dt.Rows[0][0].ToString())})";
                     cmd = new SqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
                     int index = 0;

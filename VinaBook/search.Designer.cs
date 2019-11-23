@@ -35,8 +35,8 @@
             this.cart = new System.Windows.Forms.Button();
             this.searchBtn = new System.Windows.Forms.Button();
             this.searchInput = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.returnHome = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,16 +101,6 @@
             this.searchInput.Size = new System.Drawing.Size(164, 20);
             this.searchInput.TabIndex = 9;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 31);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "VinaBook";
-            // 
             // returnHome
             // 
             this.returnHome.Location = new System.Drawing.Point(712, 62);
@@ -121,7 +111,17 @@
             this.returnHome.UseVisualStyleBackColor = true;
             this.returnHome.Click += new System.EventHandler(this.returnHome_Click);
             // 
-            // Form1
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 31);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "VinaBook";
+            // 
+            // search
             // 
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.returnHome);
@@ -133,7 +133,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "search";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,7 +149,7 @@
         private System.Windows.Forms.Button cart;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.TextBox searchInput;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button returnHome;
+        private System.Windows.Forms.Label label1;
     }
 }

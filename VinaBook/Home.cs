@@ -29,6 +29,7 @@ namespace VinaBook
                 String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
+
                 SqlCommand cmd = new SqlCommand("sp_TimSach", connection);
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@tenloaisach";
@@ -42,6 +43,7 @@ namespace VinaBook
                 DataTable book = new DataTable();
                 da.Fill(book);
                 dataGridView1.DataSource = book;
+
                 SqlCommand cmd1 = new SqlCommand("sp_DanhMuc_Sach", connection);
                 SqlDataReader reader;
                 DataTable dm = new DataTable();
@@ -103,7 +105,7 @@ namespace VinaBook
 
         private void Home_Load(object sender, EventArgs e)
         {
-            String path = @"D:\Projects\school\csdlnc-th1\DoAn2\vinabook\VinaBook\isLogin.txt";
+            string path = $"{Directory.GetCurrentDirectory()}\\isLogin.txt";
             String isLogin = File.ReadAllText(path);
             isLogin = isLogin.Trim().Replace("\r\n", String.Empty);
             if (String.Compare(isLogin, "", true) == 0)
