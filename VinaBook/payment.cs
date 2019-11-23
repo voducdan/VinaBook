@@ -91,18 +91,19 @@ namespace VinaBook
                 query = $"INSERT INTO HOADON VALUES({Id},'{day}','{day}',N'Đã nhận đơn',{Id_khach_hang},N'{phuongThucThanhToan}','{soThe}',{_tongTien},'{maGiamGia}')";
                 cmd = new SqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                cmd = new SqlCommand($"select Id_khach_hang from DANGKY_SACH where Id_sach = {book}", connection);
-                cmd.ExecuteNonQuery();
-                da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                query = $"INSERT INTO HOADONCHITIET VALUES ({Id},{Id},{_tongTien}, {Int32.Parse(dt.Rows[0][0].ToString())})";
-                cmd = new SqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
+                
                 foreach (int book in _listBook)
                 {
+                    cmd = new SqlCommand($"select Id_khach_hang from DANGKY_SACH where Id_sach = {book}", connection);
+                    cmd.ExecuteNonQuery();
+                    da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    query = $"INSERT INTO HOADONCHITIET VALUES ({Id},{Id},{_tongTien})";
+                    cmd = new SqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
                     int index = 0;
-                    query = $"INSERT INTO HOADONCHITIET_SACH VALUES ({Id},{book},{_quantity[index]})";
+                    query = $"INSERT INTO HOADONCHITIET_SACH VALUES ({Id},{book},{_quantity[index]},{Int32.Parse(dt.Rows[0][0].ToString())})";
                     cmd = new SqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
                     index++;
