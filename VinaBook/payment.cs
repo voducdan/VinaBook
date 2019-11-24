@@ -61,7 +61,6 @@ namespace VinaBook
             bool bocSach = bocsach.Checked;
             bool goiQua = goiqua.Checked;
             bool xuatHoaDon = xuathoadon.Checked;
-
             try
             {
 
@@ -69,7 +68,7 @@ namespace VinaBook
                 String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
-                String path = @"D:\Projects\school\csdlnc-th1\DoAn2\vinabook\VinaBook\isLogin.txt";
+                String path = $"{Directory.GetCurrentDirectory()}//isLogin.txt";
                 String isLogin = File.ReadAllText(path);
                 isLogin = isLogin.Trim().Replace("\r\n", String.Empty);
                 String query = "SELECT * FROM KHACHHANG WHERE Ten_khach_hang = N'" + isLogin + "'";
@@ -100,7 +99,6 @@ namespace VinaBook
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     query = $"INSERT INTO HOADONCHITIET VALUES ({Id},{Id},{_tongTien})";
-                    query = $"INSERT INTO HOADONCHITIET VALUES ({Id},{Id},{_tongTien}, {Int32.Parse(dt.Rows[0][0].ToString())})";
                     cmd = new SqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
                     int index = 0;
@@ -112,14 +110,17 @@ namespace VinaBook
                 if (bocSach)
                 {
                     cmd = new SqlCommand($"INSERT INTO HOADONCHITIET_DICHVU VALUES(${Id},{2})", connection);
+                    cmd.ExecuteNonQuery();
                 }
                 if (goiQua)
                 {
                     cmd = new SqlCommand($"INSERT INTO HOADONCHITIET_DICHVU VALUES(${Id},{3})", connection);
+                    cmd.ExecuteNonQuery();
                 }
                 if (xuatHoaDon)
                 {
                     cmd = new SqlCommand($"INSERT INTO HOADONCHITIET_DICHVU VALUES(${Id},{4})", connection);
+                    cmd.ExecuteNonQuery();
                 }
                 cmd = new SqlCommand("select MAX(Id_phieu_giao_hang) from PHIEUGIAOHANG", connection);
                 cmd.ExecuteNonQuery();
@@ -127,10 +128,11 @@ namespace VinaBook
                 DataTable idPGHMax = new DataTable();
                 da.Fill(idPGHMax);
                 int PGHMax = Int32.Parse(idPGHMax.Rows[0][0].ToString()) + 1;
-                cmd = new SqlCommand($"INSERT INTO PHIEUGIAOHANG VALUES ({PGHMax},{Id},{Id_khach_hang},{phone},{p},{q},{city},{_tongTien},'Miễn phí',{new Random().Next(101, 200)})", connection);
-                connection.Close();
+                cmd = new SqlCommand($"INSERT INTO PHIEUGIAOHANG VALUES ({PGHMax},{Id},{Id_khach_hang},'{dienthoai}','{p}','{q}','{tinh}',{_tongTien},0,{new Random().Next(101, 200)})", connection);
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand($"DELETE FROM GIOHANG WHERE Id_khach_hang = {Id_khach_hang}", connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
                 this.Hide();
                 new Home().ShowDialog();
                 this.Close();

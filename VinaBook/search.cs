@@ -18,7 +18,7 @@ namespace VinaBook
                 String param = searchText.Text;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("sp_searchBook", connection);
+                SqlCommand cmd = new SqlCommand("sp_TimKiemSachTheoTen", connection);
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@noidung";
                 parameter.SqlDbType = SqlDbType.NVarChar;
@@ -49,6 +49,11 @@ namespace VinaBook
         {
             this.Hide();
             new Home().ShowDialog();
+        }
+
+        private void searchBtn_Click_1(object sender, EventArgs e)
+        {
+            this.showResult(ref searchInput);
         }
     }
 }

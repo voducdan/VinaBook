@@ -89,6 +89,7 @@
             this.loginBtn.TabIndex = 4;
             this.loginBtn.Text = "Đăng nhập";
             this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // signUpBtn
             // 
@@ -98,6 +99,7 @@
             this.signUpBtn.TabIndex = 5;
             this.signUpBtn.Text = "Đăng Ký";
             this.signUpBtn.UseVisualStyleBackColor = true;
+            this.signUpBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // typeOfBook
             // 
@@ -146,12 +148,13 @@
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(714, 21);
+            this.username.Location = new System.Drawing.Point(714, 20);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(133, 23);
             this.username.TabIndex = 9;
             this.username.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.username.UseVisualStyleBackColor = true;
+            this.username.Click += new System.EventHandler(this.username_Click);
             // 
             // logoutBtn
             // 
@@ -171,6 +174,7 @@
             this.bestSaler.TabIndex = 11;
             this.bestSaler.Text = "Sách mới phát hành";
             this.bestSaler.UseVisualStyleBackColor = true;
+            this.bestSaler.Click += new System.EventHandler(this.bestSaler_Click);
             // 
             // addToCart
             // 

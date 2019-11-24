@@ -20,7 +20,7 @@ namespace VinaBook
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+            String str = globalVeriable.GlobalVeriable;
             SqlConnection connection = new SqlConnection(str);
             connection.Open();
             SqlCommand cmd = new SqlCommand("sp_DoanhThu_Nam", connection);
@@ -34,7 +34,7 @@ namespace VinaBook
 
         private void button2_Click(object sender, EventArgs e)
         {
-            String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+            String str = globalVeriable.GlobalVeriable;
             SqlConnection connection = new SqlConnection(str);
             connection.Open();
             SqlCommand cmd = new SqlCommand("sp_Daily", connection);

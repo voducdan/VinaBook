@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.warehouseBtn = new System.Windows.Forms.Button();
             this.orderBtn = new System.Windows.Forms.Button();
+            this.home = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +110,7 @@
             // 
             // revenueBtn
             // 
-            this.revenueBtn.Location = new System.Drawing.Point(895, 106);
+            this.revenueBtn.Location = new System.Drawing.Point(797, 107);
             this.revenueBtn.Name = "revenueBtn";
             this.revenueBtn.Size = new System.Drawing.Size(75, 23);
             this.revenueBtn.TabIndex = 15;
@@ -129,7 +130,7 @@
             // 
             // warehouseBtn
             // 
-            this.warehouseBtn.Location = new System.Drawing.Point(650, 106);
+            this.warehouseBtn.Location = new System.Drawing.Point(635, 106);
             this.warehouseBtn.Name = "warehouseBtn";
             this.warehouseBtn.Size = new System.Drawing.Size(75, 23);
             this.warehouseBtn.TabIndex = 17;
@@ -139,7 +140,7 @@
             // 
             // orderBtn
             // 
-            this.orderBtn.Location = new System.Drawing.Point(764, 105);
+            this.orderBtn.Location = new System.Drawing.Point(716, 107);
             this.orderBtn.Name = "orderBtn";
             this.orderBtn.Size = new System.Drawing.Size(75, 23);
             this.orderBtn.TabIndex = 18;
@@ -147,11 +148,22 @@
             this.orderBtn.UseVisualStyleBackColor = true;
             this.orderBtn.Click += new System.EventHandler(this.orderBtn_Click);
             // 
+            // home
+            // 
+            this.home.Location = new System.Drawing.Point(895, 107);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(75, 23);
+            this.home.TabIndex = 19;
+            this.home.Text = "Trang chủ";
+            this.home.UseVisualStyleBackColor = true;
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
             // System_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 610);
+            this.Controls.Add(this.home);
             this.Controls.Add(this.orderBtn);
             this.Controls.Add(this.warehouseBtn);
             this.Controls.Add(this.label3);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button warehouseBtn;
         private System.Windows.Forms.Button orderBtn;
+        private System.Windows.Forms.Button home;
     }
 }

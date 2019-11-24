@@ -23,7 +23,7 @@ namespace VinaBook
             try
             {
                 String selectedItem = orderStatus.Items[orderStatus.SelectedIndex].ToString();
-                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+                String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
                 SqlParameter parameter = new SqlParameter();
@@ -53,7 +53,7 @@ namespace VinaBook
             try
             {
                 String selectedItem = orderStatus.Items[orderStatus.SelectedIndex].ToString();
-                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+                String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
                 SqlParameter parameter = new SqlParameter();

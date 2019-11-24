@@ -19,7 +19,7 @@ namespace VinaBook
             try
             {
                 String str = globalVeriable.GlobalVeriable;
-                String path = @"D:\Projects\school\csdlnc-th1\DoAn2\vinabook\VinaBook\isLogin.txt";
+                string path = $"{Directory.GetCurrentDirectory()}\\isLogin.txt";
                 String isLogin = File.ReadAllText(path);
                 isLogin = isLogin.Trim().Replace("\r\n", String.Empty);
                 SqlConnection connection = new SqlConnection(str);
@@ -35,7 +35,7 @@ namespace VinaBook
                 idKhachHang.SqlDbType = SqlDbType.Int;
                 idKhachHang.Direction = ParameterDirection.Input;
                 idKhachHang.Value = user.Rows[0][0];
-                cmd = new SqlCommand("sp_XemGioHang", connection);
+                cmd = new SqlCommand("sp_ShowGioHang", connection);
                 cmd.Parameters.Add(idKhachHang);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -153,7 +153,7 @@ namespace VinaBook
 
         private void delBook_Click(object sender, EventArgs e)
         {
-            String path = @"D:\Projects\school\csdlnc-th1\DoAn2\vinabook\VinaBook\isLogin.txt";
+            string path = $"{Directory.GetCurrentDirectory()}\\isLogin.txt";
             String isLogin = File.ReadAllText(path);
             isLogin = isLogin.Trim().Replace("\r\n", String.Empty);
             String str = globalVeriable.GlobalVeriable;

@@ -93,6 +93,7 @@
             this.searchBtn.TabIndex = 10;
             this.searchBtn.Text = "Tìm kiếm";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click_1);
             // 
             // searchInput
             // 

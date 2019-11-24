@@ -22,7 +22,7 @@ namespace VinaBook
         {
             try
             {
-                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+                String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
 
@@ -45,7 +45,8 @@ namespace VinaBook
         {
             try
             {
-                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+
+                String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
 
@@ -67,7 +68,7 @@ namespace VinaBook
         {
             try
             {
-                String str = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+                String str = globalVeriable.GlobalVeriable;
                 SqlConnection connection = new SqlConnection(str);
                 connection.Open();
                 String param = searchStaff.Text;
@@ -111,6 +112,13 @@ namespace VinaBook
             this.Hide();
             order newOrder = new order();
             newOrder.ShowDialog();
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Home().ShowDialog();
+            this.Close();
         }
     }
 }

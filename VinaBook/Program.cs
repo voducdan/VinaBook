@@ -23,9 +23,26 @@ namespace VinaBook
     {
         private static String _connectionString = "Data Source=DESKTOP-SEKM9M5\\SQLEXPRESS;Initial Catalog=Vinabook;User ID=danvo;Password=Voducdantiep.1";
         //private static String _connectionString = "Data Source=DESKTOP-QA7C0NU;Initial Catalog=Vinabook;User ID=binhnguyen;Password=binh123";
+        private static string _userAdmin = "dpihgmgd";
+        private static string _passAdmin = "cj";
         public static String GlobalVeriable
         {
             get { return _connectionString; }
         }
+        public static String UserAdmin
+        {
+            get
+            {
+                return _userAdmin;
+            }
+        }
+        public static String PassAdmin
+        {
+            get
+            {
+                return _passAdmin;
+            }
+        }
+
     }
 }

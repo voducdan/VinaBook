@@ -11,6 +11,7 @@ namespace VinaBook
         {
             InitializeComponent();
         }
+        private static bool _isAdmin = false;
         private void searchBtn_Click(object sender, EventArgs e)
         {
 
@@ -106,8 +107,15 @@ namespace VinaBook
         private void Home_Load(object sender, EventArgs e)
         {
             string path = $"{Directory.GetCurrentDirectory()}\\isLogin.txt";
+            string isAdminPath = $"{Directory.GetCurrentDirectory()}\\isAdmin.txt";
             String isLogin = File.ReadAllText(path);
+            String isAdmin = File.ReadAllText(isAdminPath);
             isLogin = isLogin.Trim().Replace("\r\n", String.Empty);
+            isAdmin = isAdmin.Trim().Replace("\r\n", String.Empty);
+            if (String.Equals(isAdmin, "true"))
+            {
+                _isAdmin = true;
+            }
             if (String.Compare(isLogin, "", true) == 0)
             {
                 loginBtn.Visible = true;
@@ -141,10 +149,12 @@ namespace VinaBook
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
-            String path = @"D:\Projects\school\csdlnc-th1\DoAn2\vinabook\VinaBook\isLogin.txt";
+            string path = $"{Directory.GetCurrentDirectory()}\\isLogin.txt";
+            string isAdminPath = $"{Directory.GetCurrentDirectory()}\\isAdmin.txt";
+            File.WriteAllText(isAdminPath, "false");
             File.WriteAllText(path, "");
-            this.Close();
-            this.ShowDialog();
+            Home_Load(sender,e);
+            this.Show();
         }
 
         private void bestSaler_Click(object sender, EventArgs e)
@@ -152,7 +162,7 @@ namespace VinaBook
             String str = globalVeriable.GlobalVeriable;
             SqlConnection connection = new SqlConnection(str);
             connection.Open();
-            SqlCommand cmd = new SqlCommand("sp_SachMoiPhatHanh", connection);
+            SqlCommand cmd = new SqlCommand("sp_SachPhatHanhGanDay", connection);
             cmd.ExecuteNonQuery();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable book = new DataTable();
@@ -176,7 +186,7 @@ namespace VinaBook
             int index = dataGridView1.SelectedRows.Count;
             if(index > 0)
             {
-                String path = @"D:\Projects\school\csdlnc-th1\DoAn2\vinabook\VinaBook\isLogin.txt";
+                string path = $"{Directory.GetCurrentDirectory()}\\isLogin.txt";;
                 String isLogin = File.ReadAllText(path);
                 isLogin = isLogin.Trim().Replace("\r\n", String.Empty);
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -190,7 +200,7 @@ namespace VinaBook
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable book = new DataTable();
                         da.Fill(book);
-                        cmd = new SqlCommand("sp_ThemSachVaoGioHang", connection);
+                        cmd = new SqlCommand("sp_ThemVaoGioHang", connection);
                         SqlParameter idKhachHang = new SqlParameter();
                         idKhachHang.ParameterName = "@Id_khach_hang";
                         idKhachHang.SqlDbType = SqlDbType.Int;
@@ -223,5 +233,23 @@ namespace VinaBook
             new Cart().ShowDialog();
             this.Close();
         }
+
+        private void username_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (_isAdmin)
+            {
+                this.Hide();
+                new System_Admin().ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                new Home().ShowDialog();
+            }
+            this.Close();
+        }
+
+        
     }
 }
